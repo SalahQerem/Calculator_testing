@@ -5,7 +5,7 @@ const calc = (...expressionTerms) => {
 
   expressionTerms.forEach((term, index) => {
     if (isNumber(term)) {
-      nums.push(term);
+      nums.push(term <= 1000 ? term : 0);
     } else if (isOperator(term)) {
       while (
         operators.length !== 0 &&

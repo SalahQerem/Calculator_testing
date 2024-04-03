@@ -93,14 +93,6 @@ describe("Calculator - Additional tests", () => {
     expect(calc(9, "-", 9)).toBe(0);
   });
 
-  // Test case: Large numbers
-  it("should handle large numbers correctly", () => {
-    expect(calc(1000000, "+", 1000000)).toBe(2000000);
-    expect(calc(5000000, "-", 3000000)).toBe(2000000);
-    expect(calc(1000000, "*", 1000)).toBe(1000000000);
-    expect(calc(1000000, "/", 1000)).toBe(1000);
-  });
-
   // Test case: Exponentiation
   it("should handle exponentiation correctly", () => {
     expect(calc(2, "^", 3)).toBe(8);
@@ -115,5 +107,10 @@ describe("Calculator - Additional tests", () => {
     expect(calc(15, "%", 4)).toBe(3);
   });
 
-  // Add more test cases as needed...
+  //Test case :Numbers bigger than 1000 should be ignored
+  it("should ignore Numbers bigger than 1000", () => {
+    expect(calc(1001, "+", 3)).toBe(3);
+    expect(calc(20, "-", 5000)).toBe(20);
+    expect(calc(15, "^", 1500)).toBe(1);
+  });
 });

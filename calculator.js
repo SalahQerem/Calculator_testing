@@ -37,7 +37,14 @@ const isNumber = (term) => {
 };
 
 const isOperator = (term) => {
-  return term === "+" || term === "-" || term === "*" || term == "/";
+  return (
+    term === "+" ||
+    term === "-" ||
+    term === "*" ||
+    term == "/" ||
+    term === "%" ||
+    term == "^"
+  );
 };
 
 const getPrecedence = (operator) => {
@@ -48,6 +55,10 @@ const getPrecedence = (operator) => {
     case "*":
     case "/":
       return 2;
+    case "%":
+      return 3;
+    case "^":
+      return 4;
     default:
       throw new Error("Not supported operation");
   }
@@ -65,6 +76,10 @@ const performOperation = (numbers, operation) => {
       return b - a;
     case "*":
       return a * b;
+    case "%":
+      return b % a;
+    case "^":
+      return Math.pow(b, a);
     case "/":
       if (a === 0) {
         throw new Error("Division by zero");
@@ -76,4 +91,4 @@ const performOperation = (numbers, operation) => {
   }
 };
 
-export default calc;
+module.exports = calc;

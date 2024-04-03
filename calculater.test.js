@@ -111,6 +111,8 @@ describe("Calculator - Additional tests", () => {
   it("should ignore Numbers bigger than 1000", () => {
     expect(calc(1001, "+", 3)).toBe(3);
     expect(calc(20, "-", 5000)).toBe(20);
-    expect(calc(15, "^", 1500)).toBe(1);
+    expect(calc(15, "^", 1500)).toBe(15);
+    expect(calc(10, "*", 1500)).toBe(10);
+    expect(calc(10, "/", 1500)).toBe(10);
   });
 });

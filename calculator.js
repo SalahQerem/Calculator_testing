@@ -1,11 +1,10 @@
 const calc = (...expressionTerms) => {
   let nums = [];
-
   let operators = [];
 
   expressionTerms.forEach((term, index) => {
     if (isNumber(term)) {
-      nums.push(term <= 1000 ? term : 0);
+      nums.push(term);
     } else if (isOperator(term)) {
       while (
         operators.length !== 0 &&
@@ -64,10 +63,13 @@ const getPrecedence = (operator) => {
   }
 };
 
+const operationsWithIdentityElementOne = new Set(["*", "/", "^", "%"]);
+
 const performOperation = (numbers, operation) => {
   let a = numbers.pop();
-
+  a = a > 1000 ? (operationsWithIdentityElementOne.has(operation) ? 1 : 0) : a;
   let b = numbers.pop();
+  b = b > 1000 ? (operationsWithIdentityElementOne.has(operation) ? 1 : 0) : b;
 
   switch (operation) {
     case "+":

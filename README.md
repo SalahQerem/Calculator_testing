@@ -5,3 +5,11 @@
 
 <h2>Jest testing</h2>
 <h4>Simple unit testing with Jest for calculator</h4>
+
+## Libraries Used
+
+In this project, I've used the following libraries:
+
+- **Jest:** A delightful JavaScript testing framework with a focus on simplicity. It provides a complete and easy-to-use testing solution for JavaScript projects. [Jest](https://jestjs.io/)
+
+Please refer to the documentation of each library for more information on how to use them.
